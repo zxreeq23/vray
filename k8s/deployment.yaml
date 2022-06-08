@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: old
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: old
+  template:
+    metadata:
+      labels:
+        app: old
+    spec:
+      containers:
+      - image: okteto.dev/ray:latest
+        name: old
+        ports:
+        - containerPort: 8080
+        env:
+        - name: PORT
+          value: "8080"
+        - name: Site
+          value: "https://github.com/happyevero/Html/raw/main/CAFESTORE-html.zip"
+        - name: Vless_UUID
+          value: "1a8e2717-a972-4879-9edb-cccaf5b67cb9"
+        - name: Vless_Path
+          value: "/app"
+        - name: Vmess_UUID
+          value: "1a8e2717-a972-4879-9edb-cccaf5b67cb9"
+        - name: Vmess_Path
+          value: "/vmess"
+        - name: Share_Path
+          value: "/crtbnmiirtr"
